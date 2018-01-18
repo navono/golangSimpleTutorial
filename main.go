@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 
-	_ "golangSimpleTutorial/concurrencyDemo"
+	_ "golangSimpleTutorial/httpServer"
+	// _ "golangSimpleTutorial/concurrencyDemo"
 	// _ "golangSimpleTutorial/interfaceDemo"
 	// _ "golangSimpleTutorial/methodDemo"
 )
