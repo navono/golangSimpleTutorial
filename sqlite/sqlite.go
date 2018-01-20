@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"time"
 
+	// 导入sqlite3库
 	_ "github.com/mattn/go-sqlite3"
 )
 
