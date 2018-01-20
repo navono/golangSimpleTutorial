@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 
-	_ "golangSimpleTutorial/formDemo"
+	_ "golangSimpleTutorial/sqlite"
+	// _ "golangSimpleTutorial/formDemo"
 	// _ "golangSimpleTutorial/httpServer"
 	// _ "golangSimpleTutorial/concurrencyDemo"
 	// _ "golangSimpleTutorial/interfaceDemo"
