@@ -29,10 +29,10 @@ func (h *serverHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 func init() {
 	// http.HandleFunc("/", sayHello)
 	http.HandleFunc("/", nil)
+
+	fmt.Println("Http server listening at http://localhost:9090")
 	err := http.ListenAndServe(":9090", &serverHandler{})
 	if err != nil {
 		log.Fatal("ListenAndServer: ", err)
-	} else {
-		fmt.Println("Http server listening at http://localhost:9090")
 	}
 }
