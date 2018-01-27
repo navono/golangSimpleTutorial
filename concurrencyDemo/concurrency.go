@@ -39,7 +39,7 @@ func fibonacciV2(c, quit chan int) {
 		case <-quit:
 			fmt.Println("quit")
 			return
-		case <-time.After(5 * time.Second):
+		case <-time.After(2 * time.Second):
 			println("timeout")
 			return
 			// default就是当监听的channel都没有准备好的时候，默认执行的（select不再阻塞等待channel）
