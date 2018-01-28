@@ -21,5 +21,36 @@
 
 `Go`的并发采用的是`fork-join`模型。
 
+## Go的并发哲学
+Go除了提供了goroutine之外，也提供了内存访问同步原语机制。那么在这两者之间该如何选择？回答以下四个问题：
+1. 是否尝试转移数据的所有权？
+  > Yes -> Channels
+<br>No  -> Primitives
+2. 是否尝试保护结构体的内在状态？
+  > Yes -> Primitives
+<br>No  -> Channels
+
+例如：
+```go
+  type Counter struct {
+    mu sync.Mutex
+    value int
+  }
+  func (c *Counter) Increment() {
+    c.mu.Lock()
+    defer c.mu.Unlock()
+    c.value++
+  }
+```
+3. 是否在多个逻辑代码中进行协调配合？
+  > Yes -> Channels
+<br>No  -> Primitives
+4. 代码是否是性能关键区（performance-critical section） 
+  > Yes -> Primitives
+<br>No  -> Channels
+		 
+旨在简化，尽量使用Channel。
+
+
 # 删除临时文件
 > go clean -i
